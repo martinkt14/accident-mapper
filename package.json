@@ -1,0 +1,17 @@
+{
+    "name": "accident-mapper",
+    "version": "1.0.0",
+    "description": "Accident Mapper that uses Google Maps API or Mapbox API",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon index.js"
+    },
+    "author": "Martin K. Teufel",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "nodemon": "^1.19.1"
+    }
+}

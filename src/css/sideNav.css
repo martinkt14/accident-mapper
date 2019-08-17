@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600&display=swap");
+.btn-disabled {
+  background: #ffffff;
+  border: 2px solid #c5c5c5;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+#sideNav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  min-width: 80px;
+  z-index: 2;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #485563), to(#29323c));
+  background: linear-gradient(180deg, #485563 5%, #29323c 100%);
+}
+
+#sideNav ul {
+  display: inline-block;
+  padding-top: 100px;
+  width: 100%;
+  margin: 0 auto;
+  list-style: none;
+}
+
+#sideNav ul li {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+#sideNav ul li.active .fas {
+  background: -webkit-gradient(linear, left top, right top, from(#56ccf2), to(#2f80ed));
+  background: linear-gradient(90deg, #56ccf2 0%, #2f80ed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#sideNav ul li .nav-item {
+  color: #e5e5e5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#sideNav ul li .nav-item:hover {
+  cursor: pointer;
+}
+
+#sideNav ul li .nav-item:hover .fas {
+  background: -webkit-gradient(linear, left top, right top, from(#56ccf2), to(#2f80ed));
+  background: linear-gradient(90deg, #56ccf2 0%, #2f80ed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#sideNav ul li .nav-item i {
+  font-size: 2rem;
+  padding-bottom: 6px;
+}
+
+#sideNav ul li .nav-item p {
+  text-align: center;
+  font-size: 0.8rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+/*# sourceMappingURL=sideNav.css.map */

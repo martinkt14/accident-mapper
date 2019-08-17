@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Accident Mapper</title>
+
+        <!--Goolge Fonts-->
+        <link
+            rel="stylesheet"
+            href="https://pro.fontawesome.com/releases/v5.10.1/css/all.css"
+            integrity="sha384-y++enYq9sdV7msNmXr08kJdkX4zEI1gMjjkw0l9ttOepH7fMdhb7CePwuRQCfwCr"
+            crossorigin="anonymous"
+        />
+
+        <!--MapBox CDN-->
+        <script src="https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js"></script>
+        <link
+            href="https://api.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css"
+            rel="stylesheet"
+        />
+        <!--Custom Styling-->
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body>
+        <nav id="sideNav">
+            <ul>
+                <li id="mapStyleButton" class="nav-btn" data-menu="#map-styles">
+                    <div class="nav-item">
+                        <i class="fas fa-map"></i>
+                        <p>Map Style</p>
+                    </div>
+                </li>
+                <li id="accidentsButton" class="nav-btn" data-menu="#accidents">
+                    <div class="nav-item">
+                        <i class="fas fa-car-crash"></i>
+                        <p>Accidents</p>
+                    </div>
+                </li>
+                <li id="filtersButton" class="nav-btn" data-menu="#filters">
+                    <div class="nav-item">
+                        <i class="fas fa-filter"></i>
+                        <p>Filters</p>
+                    </div>
+                </li>
+                <!-- <li>
+                    <div class="nav-item">
+                        <i class="far fa-map"></i>
+                        <p>Settings</p>
+                    </div>
+                </li> -->
+                <li id="printButton" class="nav-btn">
+                    <div class="nav-item">
+                        <i class="fas fa-print"></i>
+                        <p>Print</p>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="map"></div>
+
+        <div id="map-styles" class="submenu">
+            <div class="submenu-header">
+                <div>
+                    <h4>Map Styles</h4>
+                    <p>Customize Map Styling</p>
+                </div>
+                <div class="close-submenu">
+                    <i class="far fa-times"></i>
+                </div>
+            </div>
+            <div class="submenu-content">
+                <div id="map-style-selection">
+                    <h4>Select Map Style</h4>
+                    <div id="map-selection-grid">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="accidents" class="submenu">
+            <div class="submenu-header">
+                <div>
+                    <h4>Accidents</h4>
+                    <p>Import/Add Accident Data</p>
+                </div>
+                <div class="close-submenu">
+                    <i class="far fa-times"></i>
+                </div>
+            </div>
+            <div class="submenu-content">
+                <div id="bulk-accident-import">
+                    <h4>Bulk Data Input</h4>
+                    <div id="accident-file-drop">
+                        <p>Drop xlsx/xls file here to import data</p>
+                    </div>
+                    <button class="btn btn-disabled">Map Data</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="filters" class="submenu">
+            <div class="submenu-header">
+                <div>
+                    <h4>Filters</h4>
+                    <p>Filter Analysis/Results</p>
+                </div>
+                <div class="close-submenu">
+                    <i class="far fa-times"></i>
+                </div>
+            </div>
+            <div class="submenu-content">
+                <div id="accident-type-filter">
+                    <h4>Accident Types</h4>
+                    <div>
+                        <div class="checkbox-container">
+                            <input
+                                type="checkbox"
+                                name=""
+                                value=""
+                                class="checkbox"
+                                data-checkbox-label="Vehicle/Vehicle"
+                                checked
+                            />
+                            <label>Vehicle/Vehicle</label>
+                        </div>
+                        <div class="checkbox-container">
+                            <input
+                                type="checkbox"
+                                name=""
+                                value=""
+                                class="checkbox"
+                                data-checkbox-label="Driver Error"
+                                checked
+                            />
+                            <label>Driver Error</label>
+                        </div>
+                        <div class="checkbox-container">
+                            <input
+                                type="checkbox"
+                                name=""
+                                value=""
+                                class="checkbox"
+                                data-checkbox-label="Weather (Rain, Ice, Etc.)"
+                                checked
+                            />
+                            <label>Weather (Rain, Ice, etc.)</label>
+                        </div>
+                        <div class="checkbox-container">
+                            <input
+                                type="checkbox"
+                                name=""
+                                value=""
+                                class="checkbox"
+                                data-checkbox-label="Other"
+                                checked
+                            />
+                            <label>Other</label>
+                        </div>
+                    </div>
+                </div>
+                <div id="proximity-filter">
+                    <h4>Proximity</h4>
+                    <button class="btn btn-disabled">Pick Point</button>
+                    <!-- <button class="btn btn-disabled">Draw Shape</button>
+                    <button class="btn btn-disabled">Map Data</button> -->
+                </div>
+                <div id="streetname-filter">
+                    <h4>Roadway/Street</h4>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            mapboxgl.accessToken =
+                "pk.eyJ1IjoibWFydGlua3QiLCJhIjoiY2p4Z3A2aDFxMDRzcjN4bXRqZmJ1ZWtnNCJ9.ADTijuOvLGo-XidvFsx7AA";
+            var map = new mapboxgl.Map({
+                container: "map",
+                style: "mapbox://styles/mapbox/light-v10",
+                center: [-86.4, 39.8],
+                zoom: 6.5
+            });
+        </script>
+
+        <script src="./js/menus.js"></script>
+    </body>
+</html>

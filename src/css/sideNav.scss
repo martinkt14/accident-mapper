@@ -1,0 +1,53 @@
+@import "./config";
+@import "./fonts";
+
+#sideNav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    min-width: 80px;
+    z-index: 2;
+    @include dark-blue-gradient(180deg);
+    ul {
+        display: inline-block;
+        padding-top: 100px;
+        width: 100%;
+        margin: 0 auto;
+        list-style: none;
+        li {
+            width: 100%;
+            margin-bottom: 2rem;
+            &.active {
+                .fas {
+                    background: $light-blue-gradient;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+            .nav-item {
+                color: $primary-gray;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                &:hover {
+                    cursor: pointer;
+                    .fas {
+                        background: $light-blue-gradient;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+                }
+                i {
+                    font-size: 2rem;
+                    padding-bottom: 6px;
+                }
+                p {
+                    text-align: center;
+                    font-size: 0.8rem;
+                    @include mont-regular;
+                }
+            }
+        }
+    }
+}

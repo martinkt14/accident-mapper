@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600&display=swap");
+
+@mixin mont-light {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+}
+
+@mixin mont-regular {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+
+@mixin mont-medium {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+}
+
+@mixin mont-semibold {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
