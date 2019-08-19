@@ -4,6 +4,7 @@
     "description": "Accident Mapper that uses Google Maps API or Mapbox API",
     "main": "index.js",
     "scripts": {
+        "start": "node index.js",
         "dev": "nodemon index.js"
     },
     "author": "Martin K. Teufel",
