@@ -50,12 +50,12 @@
                         <p>Settings</p>
                     </div>
                 </li> -->
-                <li id="printButton" class="nav-btn">
+                <!-- <li id="printButton" class="nav-btn">
                     <div class="nav-item">
                         <i class="fas fa-print"></i>
                         <p>Print</p>
                     </div>
-                </li>
+                </li> -->
             </ul>
         </nav>
 
@@ -75,12 +75,24 @@
                 <div id="map-style-selection">
                     <h4>Select Map Style</h4>
                     <div id="map-selection-grid">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                        <div
+                            style="background-image: url('./img/roads_mode.png')"
+                        ></div>
+                        <div
+                            style="background-image: url('./img/satellite_mode.png')"
+                        ></div>
+                        <div
+                            style="background-image: url('./img/satellite_street_mode.png')"
+                        ></div>
+                        <div
+                            style="background-image: url('./img/light_mode.png')"
+                        ></div>
+                        <!-- <div
+                            style="background-image: url('./img/lightblue_mode.png')"
+                        ></div> -->
+                        <div
+                            style="background-image: url('./img/dark_mode.png')"
+                        ></div>
                     </div>
                 </div>
             </div>
@@ -175,6 +187,10 @@
                 </div>
                 <div id="streetname-filter">
                     <h4>Roadway/Street</h4>
+                    <select multiple size="12" disabled>
+                        <option>Please load accident data</option>
+                    </select>
+                    <p>Ctrl + click to select multiple values</p>
                 </div>
             </div>
         </div>
