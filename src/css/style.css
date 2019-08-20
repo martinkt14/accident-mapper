@@ -273,6 +273,11 @@ body {
 
 #map-style-selection #map-selection-grid div:hover {
   cursor: pointer;
+  border: 2px solid lightskyblue;
+}
+
+#map-style-selection #map-selection-grid div.active {
+  border: 2px solid lightskyblue;
 }
 
 #accidents #bulk-accident-import #accident-file-drop {

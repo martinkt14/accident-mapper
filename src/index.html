@@ -76,22 +76,32 @@
                     <h4>Select Map Style</h4>
                     <div id="map-selection-grid">
                         <div
+                            style="background-image: url('./img/light_mode.png')"
+                            class="map-style-selector active"
+                            data-map-style="mapbox://styles/mapbox/light-v10"
+                        ></div>
+                        <div
                             style="background-image: url('./img/roads_mode.png')"
+                            class="map-style-selector"
+                            data-map-style="mapbox://styles/mapbox/streets-v10"
                         ></div>
                         <div
                             style="background-image: url('./img/satellite_mode.png')"
+                            class="map-style-selector"
+                            data-map-style="mapbox://styles/mapbox/satellite-v9"
                         ></div>
                         <div
                             style="background-image: url('./img/satellite_street_mode.png')"
-                        ></div>
-                        <div
-                            style="background-image: url('./img/light_mode.png')"
+                            class="map-style-selector"
+                            data-map-style="mapbox://styles/mapbox/satellite-streets-v10"
                         ></div>
                         <!-- <div
                             style="background-image: url('./img/lightblue_mode.png')"
                         ></div> -->
                         <div
                             style="background-image: url('./img/dark_mode.png')"
+                            class="map-style-selector"
+                            data-map-style="mapbox://styles/mapbox/dark-v9"
                         ></div>
                     </div>
                 </div>
@@ -112,7 +122,7 @@
                 <div id="bulk-accident-import">
                     <h4>Bulk Data Input</h4>
                     <div id="accident-file-drop">
-                        <p>Drop xlsx/xls file here to import data</p>
+                        <p><strong>Choose a file</strong> or drag it here</p>
                     </div>
                     <button class="btn btn-disabled">Map Data</button>
                 </div>
@@ -195,17 +205,7 @@
             </div>
         </div>
 
-        <script>
-            mapboxgl.accessToken =
-                "pk.eyJ1IjoibWFydGlua3QiLCJhIjoiY2p4Z3A2aDFxMDRzcjN4bXRqZmJ1ZWtnNCJ9.ADTijuOvLGo-XidvFsx7AA";
-            var map = new mapboxgl.Map({
-                container: "map",
-                style: "mapbox://styles/mapbox/light-v10",
-                center: [-86.4, 39.8],
-                zoom: 6.5
-            });
-        </script>
-
         <script src="./js/menus.js"></script>
+        <script src="./js/map.js"></script>
     </body>
 </html>

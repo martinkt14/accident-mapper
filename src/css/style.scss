@@ -80,6 +80,10 @@ body {
             width: 100px;
             &:hover {
                 cursor: pointer;
+                border: 2px solid lightskyblue;
+            }
+            &.active {
+                border: 2px solid lightskyblue;
             }
         }
     }
