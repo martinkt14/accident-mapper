@@ -34,9 +34,24 @@ const mapData = accidents => {
 //Filter Accidents by Distance
 //Add Project Location Marker
 map.on("click", function(e) {
-    console.log(e.lngLat);
-
-    // let marker = new mapboxgl.Marker().setLngLat(e.lngLat).addTo(map);
+    if (
+        document
+            .querySelector("#target-point-button")
+            .classList.contains("active")
+    ) {
+        const markerOptions = {
+            color: "red"
+        };
+        let marker = new mapboxgl.Marker(markerOptions)
+            .setLngLat(e.lngLat)
+            .addTo(map);
+        document
+            .querySelector("#target-point-button")
+            .classList.remove("active");
+        proxPickPoint.textContent = proxPickPoint.classList.contains("active")
+            ? "Cancel"
+            : "Pick Point";
+    }
 });
 
 //Filter Accidents by Roadway

@@ -368,6 +368,15 @@ body {
   font-size: 0.7rem;
 }
 
+#filters #proximity-filter h4 {
+  margin-bottom: 0;
+}
+
+#filters #proximity-filter button.btn.active {
+  border-color: red;
+  color: red;
+}
+
 #filters #streetname-filter select {
   width: 100%;
   margin-bottom: 8px;

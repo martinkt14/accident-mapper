@@ -5,6 +5,7 @@ const mapStyleSelectors = document.querySelectorAll(".map-style-selector");
 const accidentFileDrop = document.querySelector("#accident-file-drop");
 const dropLabel = document.querySelector("label[for=filedrop]");
 const fileSubmitButton = document.querySelector("#map-data");
+const proxPickPoint = document.querySelector("#target-point-button");
 
 ////////////////////////////////////////////////
 //Open Submenu(s)
@@ -114,6 +115,19 @@ accidentFileDrop.addEventListener("submit", function(e) {
         mapData(accidentData);
         dropLabel.textContent = "Data Successfully Uploaded!";
     });
+});
+
+////////////////////////////////////////////////
+//Handle Filters
+///////////////////////////////////////////////
+
+//Proximity Filter
+proxPickPoint.addEventListener("click", () => {
+    proxPickPoint.classList.toggle("active");
+    //Toggle Text
+    proxPickPoint.textContent = proxPickPoint.classList.contains("active")
+        ? "Cancel"
+        : "Pick Point";
 });
 
 console.log("Menu JS loaded...");

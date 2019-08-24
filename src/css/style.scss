@@ -154,6 +154,17 @@ body {
             }
         }
     }
+    #proximity-filter {
+        h4 {
+            margin-bottom: 0;
+        }
+        button.btn {
+            &.active {
+                border-color: red;
+                color: red;
+            }
+        }
+    }
     #streetname-filter {
         select {
             width: 100%;
