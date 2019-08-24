@@ -1,6 +1,7 @@
 //JavaScript file for handling map interaction
 console.log("MapJS file loaded...");
 //Variable definition
+let projectLocation;
 
 //Load Initial Map with Default Settings
 mapboxgl.accessToken =
@@ -13,7 +14,6 @@ var map = new mapboxgl.Map({
 });
 
 //Plot Accident Data
-
 const mapData = accidents => {
     accidents.forEach(accident => {
         let popup = new mapboxgl.Popup().setHTML(
@@ -32,5 +32,11 @@ const mapData = accidents => {
 //Filter Accident Types
 
 //Filter Accidents by Distance
+//Add Project Location Marker
+map.on("click", function(e) {
+    console.log(e.lngLat);
+
+    // let marker = new mapboxgl.Marker().setLngLat(e.lngLat).addTo(map);
+});
 
 //Filter Accidents by Roadway

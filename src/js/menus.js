@@ -81,6 +81,7 @@ accidentFileDrop.addEventListener("drop", function(event) {
     this.classList.remove("active");
 
     dropLabel.textContent = event.dataTransfer.files[0].name;
+    document.querySelector("#filedrop").files = event.dataTransfer.files;
     fileSubmitButton.classList.add("active");
 });
 
