@@ -30,6 +30,7 @@ body {
         height: 100vh;
         min-width: 300px;
         background: white;
+        box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.25);
         transition: all 0.2s ease;
         .submenu-header {
             @include dark-blue-gradient(90deg);
@@ -91,24 +92,42 @@ body {
 
 #accidents {
     #bulk-accident-import {
-        #accident-file-drop {
-            height: 80px;
-            width: 100%;
-            background: #eee;
-            border-radius: 12px;
-            border: 4px dashed #dad5d5;
-            margin-bottom: 1rem;
-            p {
-                display: block;
-                position: relative;
-                top: 50%;
-                transform: translateY(-50%);
-                margin: 0 auto;
-                text-align: center;
-                @include mont-semibold;
-                font-size: 0.6rem;
-                color: #dad5d5;
+        form {
+            margin-bottom: 1.5rem;
+            input[type="file"] {
+                width: 0.1px;
+                height: 0.1px;
+                opacity: 0;
+                overflow: hidden;
+                position: absolute;
+                z-index: -1;
             }
+            label {
+                display: block;
+                width: 240px;
+                @include mont-regular;
+                font-size: 0.8rem;
+                text-align: center;
+                background: #eee;
+                border-radius: 8px;
+                border: 4px dashed #dad5d5;
+                padding: 1.5rem;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            button {
+                display: none;
+                &.active {
+                    display: block;
+                }
+            }
+        }
+    }
+    #accident-data-table {
+        display: none;
+        &.active {
+            display: block;
         }
     }
 }
@@ -149,5 +168,39 @@ body {
             @include mont-light;
             font-size: 0.6rem;
         }
+    }
+}
+
+////////////////////////////////////////////
+//Custom styling for Mapbox objects
+////////////////////////////////////////////
+.mapboxgl-marker {
+    &:hover {
+        cursor: pointer;
+    }
+}
+.mapboxgl-popup {
+    min-width: 280px;
+    max-width: 400px !important;
+    &-content {
+        padding: 1rem;
+        h1 {
+            @include mont-semibold;
+            font-size: 0.9rem;
+        }
+        h2 {
+            @include mont-medium;
+            font-size: 0.7rem;
+        }
+        p {
+            @include mont-regular;
+            margin-top: 8px;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    &-close-button {
+        padding: 4px;
     }
 }

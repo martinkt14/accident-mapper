@@ -5,16 +5,21 @@
 $light-blue-gradient: linear-gradient(90deg, #56ccf2 0%, #2f80ed 100%);
 $primary-gray: #e5e5e5;
 $dark-gray: #757575;
+$primary-blue: #485563;
 
 .btn {
+    background: #ffffff;
+    border: 2px solid $primary-blue;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 0.5rem 2rem;
+    margin-top: 1.5rem;
+    @include mont-regular;
+    font-size: 0.7rem;
+    color: $primary-blue;
     &.btn-disabled {
         background: #ffffff;
         border: 2px solid #c5c5c5;
-        box-sizing: border-box;
-        border-radius: 8px;
-        padding: 6px 10px;
-        @include mont-regular;
-        font-size: 0.7rem;
         color: #c5c5c5;
     }
     &:hover {

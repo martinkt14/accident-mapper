@@ -121,10 +121,19 @@
             <div class="submenu-content">
                 <div id="bulk-accident-import">
                     <h4>Bulk Data Input</h4>
-                    <div id="accident-file-drop">
-                        <p><strong>Choose a file</strong> or drag it here</p>
-                    </div>
-                    <button class="btn btn-disabled">Map Data</button>
+                    <form id="accident-file-drop">
+                        <input type="file" name="filedrop" id="filedrop" />
+                        <label for="filedrop"
+                            ><strong>Chose a file</strong
+                            ><span> or drag it here</span>
+                        </label>
+                        <button type="submit" class="btn" id="map-data">
+                            Map Data
+                        </button>
+                    </form>
+                </div>
+                <div id="accident-data-table">
+                    <h4>Accident Records</h4>
                 </div>
             </div>
         </div>
@@ -205,7 +214,7 @@
             </div>
         </div>
 
-        <script src="./js/menus.js"></script>
         <script src="./js/map.js"></script>
+        <script src="./js/menus.js"></script>
     </body>
 </html>

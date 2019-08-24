@@ -1,8 +1,6 @@
 //JavaScript file for handling map interaction
 console.log("MapJS file loaded...");
 //Variable definition
-const styleSelectors = document.querySelectorAll(".map-style-selector");
-const accidentFileDrop = document.querySelector("#accident-file-drop");
 
 //Load Initial Map with Default Settings
 mapboxgl.accessToken =
@@ -14,40 +12,22 @@ var map = new mapboxgl.Map({
     zoom: 6.5
 });
 
-//Change map style
-styleSelectors.forEach(selector => {
-    selector.addEventListener("click", function() {
-        const style = this.getAttribute("data-map-style");
-        map.setStyle(style);
+//Plot Accident Data
+
+const mapData = accidents => {
+    accidents.forEach(accident => {
+        let popup = new mapboxgl.Popup().setHTML(
+            `<h1>Record Number: ${accident["Record Number"]}</h1>
+            <h2>Accident Type: Testing</h2>
+            <p>${accident["Summary"]}</p>`
+        );
+
+        let marker = new mapboxgl.Marker()
+            .setLngLat([accident["Longitude"], accident["Latitude"]])
+            .setPopup(popup)
+            .addTo(map);
     });
-});
-
-//Load Accident Data
-accidentFileDrop.addEventListener("dragover", function(event) {
-    event.preventDefault();
-});
-
-accidentFileDrop.addEventListener("drop", function(event) {
-    event.preventDefault();
-    var file = event.dataTransfer.files;
-    //Make sure file was uploaded
-    if (file.length == 0) {
-        return console.log("No file uploaded");
-    }
-    //Make sure only signle file was uploaded
-    if (file.length >= 2) {
-        return console.log("Only single file permitted");
-    }
-    const uploadedFile = file[0];
-    const extension = uploadedFile.name.split(".").pop();
-    //Check File Extension
-    if (extension == "xls" || extension == "xlsx") {
-        return console.log("Upload File");
-    } else {
-        return console.log("Unsupported Filetype");
-    }
-    console.log(file.name);
-});
+};
 
 //Filter Accident Types
 
