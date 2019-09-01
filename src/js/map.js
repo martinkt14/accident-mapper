@@ -20,17 +20,41 @@ var scale = new mapboxgl.ScaleControl({
 });
 map.addControl(scale);
 
+// map.on("load", () => {
+//   map.loadImage(`../img/icons/other-icon.png`, (error, image) => {
+//     if (error) {
+//       throw error;
+//     }
+//     //Add Image
+//     map.addImage("other", image);
+//   });
+// });
+
 //Plot Accident Data
 const mapData = accidents => {
-  accidents.forEach(accident => {
-    let popup = new mapboxgl.Popup().setHTML(
-      `<h1>Record Number: ${accident["Record Number"]}</h1>
-            <h2>Accident Type: ${accident["Accident Type"]}</h2>
-            <p>${accident["Summary"]}</p>`
+  accidents.features.forEach(feature => {
+    let accidentType = feature.properties["Accident Type"].toLowerCase();
+    let roadwayID = feature.properties["Roadway ID"];
+    //Create Marker Element
+    let el = document.createElement("div");
+    el.className = "marker";
+    el.setAttribute("data-accident-type", accidentType);
+    el.setAttribute("data-roadway-id", roadwayID);
+    el.style.backgroundImage = `url(../img/icons/${accidentType}-icon.png)`;
+    el.style.width = "64px";
+    el.style.height = "64px";
+    //Add data to popup
+    let popup = new mapboxgl.Popup({ offset: 40 }).setHTML(
+      `<h1>Record Number: ${feature.properties["Record Number"]}</h1>
+            <h2>Accident Type: ${feature.properties["Accident Type"]}</h2>
+            <p>${feature.properties["Summary"]}</p>`
     );
-
-    let marker = new mapboxgl.Marker()
-      .setLngLat([accident["Longitude"], accident["Latitude"]])
+    //Set Marker
+    new mapboxgl.Marker(el)
+      .setLngLat([
+        feature.geometry.coordinates[0],
+        feature.geometry.coordinates[1]
+      ])
       .setPopup(popup)
       .addTo(map);
   });
@@ -38,7 +62,9 @@ const mapData = accidents => {
 
 //Filter Accident Types
 
+/////////////////////////////////////////////////
 //Filter Accidents by Distance
+/////////////////////////////////////////////////
 //Add Project Location Marker
 map.on("click", function(e) {
   if (

@@ -1,3 +1,5 @@
+import { loadRoadwayIDs, resetRoadwayList } from "./_utils.js";
+
 //Variables
 const overlay = document.querySelector(".overlay");
 //Navigation
@@ -123,16 +125,18 @@ accidentFileDrop.addEventListener("submit", function(e) {
     body: formData
   }).then(async res => {
     try {
-      let accidentData = await res.json().then(data => {
-        return data;
-      });
-      mapData(accidentData);
-      dropLabel.textContent = "Data Successfully Uploaded!";
+      let accidents = await res.json().then(data => data);
+      //Map Accidents
+      mapData(accidents);
+      //Change Labels and Add/Show Buttons
+      dropLabel.textContent = "Data Successfully Uploaded";
       fileSubmitButton.classList.remove("active");
       overlay.classList.add("active");
+      //Set Data and Show Modal
       accidentModal.classList.add("active");
+      loadRoadwayIDs(accidents);
     } catch (error) {
-      dropLabel.textContent = "Error: Unable to Load Data";
+      dropLabel.textContent = "Error: " + error;
     }
   });
 });
@@ -161,6 +165,8 @@ clearMapButton.addEventListener("click", () => {
   dropLabel.innerHTML = `<strong>Chose a file</strong><span> or drag it here</span>`;
   //Reset File Drop Input/Form
   accidentFileDrop.reset();
+  //Reset roadway filter list
+  resetRoadwayList();
 });
 
 ////////////////////////////////////////////////
@@ -194,7 +200,16 @@ const checkboxes = document.querySelectorAll("input[type=checkbox]");
 
 checkboxes.forEach(checkbox => {
   checkbox.addEventListener("click", function(e) {
-    console.log(this.getAttribute("data-checkbox-label"));
+    let layerID = this.getAttribute("data-accident-type").toLowerCase();
+
+    const accidentMarkers = document.querySelectorAll(".marker");
+    accidentMarkers.forEach(marker => {
+      if (layerID == marker.getAttribute("data-accident-type")) {
+        e.target.checked
+          ? (marker.style.display = "block")
+          : (marker.style.display = "none");
+      }
+    });
   });
 });
 

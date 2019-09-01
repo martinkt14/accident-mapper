@@ -181,6 +181,7 @@
                 value=""
                 class="checkbox"
                 data-checkbox-label="Weather (Rain, Ice, Etc.)"
+                data-accident-type="weather"
                 checked
               />
               <label>Weather (Rain, Ice, etc.)</label>
@@ -192,6 +193,7 @@
                 value=""
                 class="checkbox"
                 data-checkbox-label="Other"
+                data-accident-type="other"
                 checked
               />
               <label>Other</label>
@@ -254,7 +256,8 @@
       <button class="btn">Analyze Data</button>
     </div>
 
+    <script src="./js/_utils.js" type="module"></script>
     <script src="./js/map.js"></script>
-    <script src="./js/menus.js"></script>
+    <script src="./js/menus.js" type="module"></script>
   </body>
 </html>
