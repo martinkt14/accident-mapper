@@ -1,4 +1,8 @@
-import { loadRoadwayIDs, resetRoadwayList } from "./_utils.js";
+import {
+  loadRoadwayIDs,
+  resetRoadwayList,
+  displayFilteredMarkers
+} from "./_utils.js";
 
 //Variables
 const overlay = document.querySelector(".overlay");
@@ -13,14 +17,12 @@ const accidentFileDrop = document.querySelector("#accident-file-drop");
 const dropLabel = document.querySelector("label[for=filedrop]");
 const fileSubmitButton = document.querySelector("#map-data");
 //Filters
-const proxPickPoint = document.querySelector("#target-point-button");
 const accidentModal = document.querySelector("#accident-upload-modal");
 const accidentStatMapped = document.querySelector("#accidents-mapped");
 const accidentStatErrors = document.querySelector("#accident-errors");
 const analyzeAccidents = document.querySelector(
   "#accident-upload-modal > button"
 );
-const distanceSlider = document.querySelector("#distance-slider");
 
 ////////////////////////////////////////////////
 //Open Submenu(s)
@@ -175,42 +177,43 @@ clearMapButton.addEventListener("click", () => {
 
 //Proximity Filter
 //////////////////////////////////
-proxPickPoint.addEventListener("click", () => {
-  proxPickPoint.classList.toggle("btn-danger");
-  //Toggle Text
-  proxPickPoint.textContent = proxPickPoint.classList.contains("btn-danger")
-    ? "Cancel"
-    : "Pick Point";
-});
+// const proxPickPoint = document.querySelector("#target-point-button");
+// const distanceSlider = document.querySelector("#distance-slider");
+// proxPickPoint.addEventListener("click", () => {
+//   proxPickPoint.classList.toggle("btn-danger");
+//   //Toggle Text
+//   proxPickPoint.textContent = proxPickPoint.classList.contains("btn-danger")
+//     ? "Cancel"
+//     : "Pick Point";
+// });
 
-distanceSlider.addEventListener("input", function() {
-  const label = document.querySelector("label[for=slider]");
-  if (this.value == 0) {
-    return (label.textContent = "");
-  }
-  if (this.value <= 1) {
-    return (label.textContent = this.value + " mile");
-  }
-  return (label.textContent = this.value + " miles");
-});
+// distanceSlider.addEventListener("input", function() {
+//   const label = document.querySelector("label[for=slider]");
+//   if (this.value == 0) {
+//     return (label.textContent = "");
+//   }
+//   if (this.value <= 1) {
+//     return (label.textContent = this.value + " mile");
+//   }
+//   return (label.textContent = this.value + " miles");
+// });
 
 //Category Filter
 //////////////////////////////////
 const checkboxes = document.querySelectorAll("input[type=checkbox]");
 
 checkboxes.forEach(checkbox => {
-  checkbox.addEventListener("click", function(e) {
-    let layerID = this.getAttribute("data-accident-type").toLowerCase();
-
-    const accidentMarkers = document.querySelectorAll(".marker");
-    accidentMarkers.forEach(marker => {
-      if (layerID == marker.getAttribute("data-accident-type")) {
-        e.target.checked
-          ? (marker.style.display = "block")
-          : (marker.style.display = "none");
-      }
-    });
+  checkbox.addEventListener("click", () => {
+    displayFilteredMarkers();
   });
+});
+
+//Roadway Filter
+//////////////////////////////////
+const roadwaySelectList = document.querySelector("select");
+
+roadwaySelectList.addEventListener("click", () => {
+  displayFilteredMarkers();
 });
 
 console.log("Menu JS loaded...");
