@@ -56,5 +56,5 @@ const fitMapBounds = accidents => {
   accidents.features.forEach(feature => {
     bounds.extend(feature.geometry.coordinates);
   });
-  map.fitBounds(bounds);
+  map.fitBounds(bounds, { padding: 60 });
 };
