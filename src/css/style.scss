@@ -199,9 +199,13 @@ body {
       width: 100%;
       margin-bottom: 8px;
       padding: 6px;
+      &:hover {
+        cursor: pointer;
+      }
       option {
         @include mont-regular;
         font-size: 0.8rem;
+        margin-bottom: 2px;
       }
     }
     p {

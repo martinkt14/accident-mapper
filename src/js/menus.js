@@ -1,4 +1,5 @@
 import {
+  loadAccidentTypes,
   loadRoadwayIDs,
   resetRoadwayList,
   displayFilteredMarkers
@@ -137,6 +138,7 @@ accidentFileDrop.addEventListener("submit", function(e) {
       //Set Data and Show Modal
       accidentModal.classList.add("active");
       loadRoadwayIDs(accidents);
+      // loadAccidentTypes(accidents);
     } catch (error) {
       dropLabel.textContent = "Error: " + error;
     }

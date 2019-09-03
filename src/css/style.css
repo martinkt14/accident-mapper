@@ -447,10 +447,15 @@ body .overlay.active {
   padding: 6px;
 }
 
+#filters #streetname-filter select:hover {
+  cursor: pointer;
+}
+
 #filters #streetname-filter select option {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 0.8rem;
+  margin-bottom: 2px;
 }
 
 #filters #streetname-filter p {

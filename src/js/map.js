@@ -20,16 +20,6 @@ var scale = new mapboxgl.ScaleControl({
 });
 map.addControl(scale);
 
-// map.on("load", () => {
-//   map.loadImage(`../img/icons/other-icon.png`, (error, image) => {
-//     if (error) {
-//       throw error;
-//     }
-//     //Add Image
-//     map.addImage("other", image);
-//   });
-// });
-
 //Plot Accident Data
 const mapData = accidents => {
   accidents.features.forEach(feature => {
@@ -60,31 +50,24 @@ const mapData = accidents => {
   });
 };
 
-//Filter Accident Types
-
-/////////////////////////////////////////////////
-//Filter Accidents by Distance
-/////////////////////////////////////////////////
 //Add Project Location Marker
-map.on("click", function(e) {
-  if (
-    document
-      .querySelector("#target-point-button")
-      .classList.contains("btn-danger")
-  ) {
-    const markerOptions = {
-      color: "red"
-    };
-    let marker = new mapboxgl.Marker(markerOptions)
-      .setLngLat(e.lngLat)
-      .addTo(map);
-    document
-      .querySelector("#target-point-button")
-      .classList.remove("btn-danger");
-    proxPickPoint.textContent = proxPickPoint.classList.contains("btn-danger")
-      ? "Cancel"
-      : "Pick Point";
-  }
-});
-
-//Filter Accidents by Roadway
+// map.on("click", function(e) {
+//   if (
+//     document
+//       .querySelector("#target-point-button")
+//       .classList.contains("btn-danger")
+//   ) {
+//     const markerOptions = {
+//       color: "red"
+//     };
+//     let marker = new mapboxgl.Marker(markerOptions)
+//       .setLngLat(e.lngLat)
+//       .addTo(map);
+//     document
+//       .querySelector("#target-point-button")
+//       .classList.remove("btn-danger");
+//     proxPickPoint.textContent = proxPickPoint.classList.contains("btn-danger")
+//       ? "Cancel"
+//       : "Pick Point";
+//   }
+// });

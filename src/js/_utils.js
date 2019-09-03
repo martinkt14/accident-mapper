@@ -5,6 +5,49 @@ let createSelectOption = (roadwayID, selectMenu) => {
   selectMenu.add(el);
 };
 
+//Broken...
+let createAccidentTypeCheckbox = (type, checkboxContainer) => {
+  console.log(checkboxContainer);
+  //Create Container
+  let container = document.createElement("div");
+  container.classList.add(".checkbox-container");
+  console.log(container);
+  //Create checkbox
+  let el = document.createElement("input");
+  el.type = "checkbox";
+  el.classList.add("checkbox");
+  el.setAttribute("data-checkbox-label", type);
+  el.setAttribute("data-accident-type", type);
+  el.checked = true;
+  container.appendChild(el);
+  //Create Label
+  let label = document.createElement("label");
+  label.innerHTML = type;
+  container.appendChild(label);
+
+  checkboxContainer.appendChild(container);
+};
+
+////// Function to load accident types into type filter (dynamically generated based on imported data)
+let loadAccidentTypes = geojsonData => {
+  //Define function variables
+  let typeFilterContainer = document.querySelector(
+    "#accident-type-filter > div"
+  );
+  let accidentTypeList = [];
+  //Main Function
+  geojsonData.features.forEach(feature => {
+    let accidentType = feature.properties["Accident Type"];
+    if (accidentTypeList.indexOf(accidentType) == -1) {
+      accidentTypeList.push(accidentType);
+    }
+  });
+
+  accidentTypeList.sort().forEach(type => {
+    createAccidentTypeCheckbox(type, typeFilterContainer);
+  });
+};
+
 ////// Function to load raodway ids/names into roadway/street filter
 let loadRoadwayIDs = geojsonData => {
   let roadwayListHolder = document.querySelector("#streetname-filter > select");
@@ -24,6 +67,15 @@ let loadRoadwayIDs = geojsonData => {
       processedRoadways.push(roadwayID);
     }
   });
+
+  //Add all roads select option
+  let el = document.createElement("option");
+  el.setAttribute("data-roadway-id", "all");
+  el.text = "Show all/don't filter by roadway";
+  el.style.textDecoration = "underline";
+  el.style.textShadow = "0px 0px 0px black"; //Faux bold
+  el.selected = true;
+  roadwayListHolder.add(el);
 
   //Add select menu options for roadway filter
   processedRoadways.sort().forEach(roadway => {
@@ -93,7 +145,8 @@ let displayFilteredMarkers = () => {
 
     if (
       filteredTypes.indexOf(type) != -1 &&
-      filteredRoadways.indexOf(roadway) != -1
+      (filteredRoadways.indexOf(roadway) != -1 ||
+        filteredRoadways.indexOf("all") != -1)
     ) {
       marker.style.display = "block";
     } else {
@@ -102,4 +155,9 @@ let displayFilteredMarkers = () => {
   });
 };
 
-export { loadRoadwayIDs, resetRoadwayList, displayFilteredMarkers };
+export {
+  loadAccidentTypes,
+  loadRoadwayIDs,
+  resetRoadwayList,
+  displayFilteredMarkers
+};
