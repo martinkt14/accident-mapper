@@ -134,11 +134,13 @@ accidentFileDrop.addEventListener("submit", function(e) {
       //Change Labels and Add/Show Buttons
       dropLabel.textContent = "Data Successfully Uploaded";
       fileSubmitButton.classList.remove("active");
-      overlay.classList.add("active");
-      //Set Data and Show Modal
-      accidentModal.classList.add("active");
+      //Process Data
+      fitMapBounds(accidents);
       loadRoadwayIDs(accidents);
-      // loadAccidentTypes(accidents);
+      //Set Data and Show Modal
+      overlay.classList.add("active");
+      accidentModal.classList.add("active");
+      // loadAccidentTypes(accidents); //Disabled (filter doesn't work)
     } catch (error) {
       dropLabel.textContent = "Error: " + error;
     }

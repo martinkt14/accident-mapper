@@ -5,24 +5,22 @@ let createSelectOption = (roadwayID, selectMenu) => {
   selectMenu.add(el);
 };
 
-//Broken...
+//Broken...filter doesn't work...
 let createAccidentTypeCheckbox = (type, checkboxContainer) => {
-  console.log(checkboxContainer);
   //Create Container
   let container = document.createElement("div");
-  container.classList.add(".checkbox-container");
-  console.log(container);
+  container.classList.add("checkbox-container");
   //Create checkbox
   let el = document.createElement("input");
   el.type = "checkbox";
   el.classList.add("checkbox");
   el.setAttribute("data-checkbox-label", type);
-  el.setAttribute("data-accident-type", type);
+  el.setAttribute("data-accident-type", type.toLowerCase());
   el.checked = true;
   container.appendChild(el);
   //Create Label
   let label = document.createElement("label");
-  label.innerHTML = type;
+  label.textContent = type;
   container.appendChild(label);
 
   checkboxContainer.appendChild(container);

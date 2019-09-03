@@ -50,24 +50,11 @@ const mapData = accidents => {
   });
 };
 
-//Add Project Location Marker
-// map.on("click", function(e) {
-//   if (
-//     document
-//       .querySelector("#target-point-button")
-//       .classList.contains("btn-danger")
-//   ) {
-//     const markerOptions = {
-//       color: "red"
-//     };
-//     let marker = new mapboxgl.Marker(markerOptions)
-//       .setLngLat(e.lngLat)
-//       .addTo(map);
-//     document
-//       .querySelector("#target-point-button")
-//       .classList.remove("btn-danger");
-//     proxPickPoint.textContent = proxPickPoint.classList.contains("btn-danger")
-//       ? "Cancel"
-//       : "Pick Point";
-//   }
-// });
+const fitMapBounds = accidents => {
+  console.log(accidents);
+  let bounds = new mapboxgl.LngLatBounds();
+  accidents.features.forEach(feature => {
+    bounds.extend(feature.geometry.coordinates);
+  });
+  map.fitBounds(bounds);
+};
