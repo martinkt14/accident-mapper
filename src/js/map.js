@@ -25,18 +25,25 @@ const mapData = accidents => {
   accidents.features.forEach(feature => {
     let accidentType = feature.properties["Accident Type"].toLowerCase();
     let roadwayID = feature.properties["Roadway ID"];
+    let fatalities = feature.properties["Fatalities"];
     //Create Marker Element
     let el = document.createElement("div");
     el.className = "marker";
     el.setAttribute("data-accident-type", accidentType);
     el.setAttribute("data-roadway-id", roadwayID);
-    el.style.backgroundImage = `url(../img/icons/${accidentType}-icon.png)`;
+    if (fatalities > 0) {
+      el.style.backgroundImage = `url(../img/icons/${accidentType}-icon-fatal.png)`;
+    } else {
+      el.style.backgroundImage = `url(../img/icons/${accidentType}-icon.png)`;
+    }
     el.style.width = "64px";
     el.style.height = "64px";
     //Add data to popup
     let popup = new mapboxgl.Popup({ offset: 40 }).setHTML(
       `<h1>Record Number: ${feature.properties["Record Number"]}</h1>
+      <div class='popup-divider'></div>
             <h2>Accident Type: ${feature.properties["Accident Type"]}</h2>
+            <h2>Fatalities: ${fatalities}</h2>
             <p>${feature.properties["Summary"]}</p>`
     );
     //Set Marker
@@ -51,7 +58,6 @@ const mapData = accidents => {
 };
 
 const fitMapBounds = accidents => {
-  console.log(accidents);
   let bounds = new mapboxgl.LngLatBounds();
   accidents.features.forEach(feature => {
     bounds.extend(feature.geometry.coordinates);

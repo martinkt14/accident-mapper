@@ -583,6 +583,13 @@ body .overlay.active {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 0.9rem;
+  margin-bottom: 2px;
+}
+
+.mapboxgl-popup-content .popup-divider {
+  width: 100%;
+  border-bottom: 1px solid grey;
+  margin-bottom: 6px;
 }
 
 .mapboxgl-popup-content h2 {

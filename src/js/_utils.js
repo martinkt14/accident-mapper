@@ -93,6 +93,13 @@ let resetRoadwayList = () => {
   roadwayListHolder.disabled = true;
 };
 
+let resetTypeCheckboxes = () => {
+  const checkboxes = document.querySelectorAll("input[type=checkbox]");
+  checkboxes.forEach(checkbox => {
+    checkbox.checked = true;
+  });
+};
+
 let getFilterStatus = filter => {
   switch (filter) {
     case "type":
@@ -157,5 +164,6 @@ export {
   loadAccidentTypes,
   loadRoadwayIDs,
   resetRoadwayList,
+  resetTypeCheckboxes,
   displayFilteredMarkers
 };

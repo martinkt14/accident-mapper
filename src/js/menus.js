@@ -2,6 +2,7 @@ import {
   loadAccidentTypes,
   loadRoadwayIDs,
   resetRoadwayList,
+  resetTypeCheckboxes,
   displayFilteredMarkers
 } from "./_utils.js";
 
@@ -137,6 +138,7 @@ accidentFileDrop.addEventListener("submit", function(e) {
       //Process Data
       fitMapBounds(accidents);
       loadRoadwayIDs(accidents);
+      resetTypeCheckboxes();
       //Set Data and Show Modal
       overlay.classList.add("active");
       accidentModal.classList.add("active");
@@ -153,6 +155,7 @@ accidentFileDrop.addEventListener("submit", function(e) {
 analyzeAccidents.addEventListener("click", () => {
   accidentModal.classList.remove("active");
   overlay.classList.remove("active");
+  accidentFileDrop.style.display = "none";
   clearMapButton.style = "display: block";
 });
 
@@ -171,8 +174,10 @@ clearMapButton.addEventListener("click", () => {
   dropLabel.innerHTML = `<strong>Chose a file</strong><span> or drag it here</span>`;
   //Reset File Drop Input/Form
   accidentFileDrop.reset();
+  accidentFileDrop.style.display = "block";
   //Reset roadway filter list
   resetRoadwayList();
+  resetTypeCheckboxes();
 });
 
 ////////////////////////////////////////////////
