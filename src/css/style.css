@@ -70,6 +70,13 @@
   color: #99a1a7;
 }
 
+.select {
+  padding: 2px 6px;
+  min-width: 180px;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+}
+
 .btn {
   background: #ffffff;
   border: 2px solid #485563;
@@ -138,6 +145,13 @@
   top: 0px;
   left: 3px;
   color: #99a1a7;
+}
+
+.select {
+  padding: 2px 6px;
+  min-width: 180px;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
 }
 
 #sideNav {
@@ -462,6 +476,68 @@ body .overlay.active {
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 0.6rem;
+}
+
+#print #print-general-settings p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin-bottom: 6px;
+}
+
+#print #print-general-settings select:first-of-type {
+  margin-bottom: 0.6rem;
+}
+
+#print #print-scale .checkbox-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 6px;
+}
+
+#print #print-scale .checkbox-container:last-of-type {
+  margin-bottom: 0;
+}
+
+#print #print-scale .checkbox-container input:hover {
+  cursor: pointer;
+}
+
+#print #print-scale .checkbox-container label {
+  display: inline-block;
+  margin-left: 8px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+#print #print-scale select {
+  margin-top: 0.6rem;
+}
+
+#print #print-margins #margin-input-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0.6rem;
+}
+
+#print #print-margins #margin-input-container input {
+  display: inline-block;
+  width: 60px;
+  text-align: center;
+  padding: 4px;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+  margin-right: 6px;
+}
+
+#print #print-margins #margin-input-container input:last-of-type {
+  margin-right: 0;
 }
 
 #accident-upload-modal {

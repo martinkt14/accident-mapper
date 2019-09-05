@@ -215,6 +215,63 @@ body {
   }
 }
 
+#print {
+  #print-general-settings {
+    p {
+      @include mont-regular;
+      font-size: 0.8rem;
+      margin-bottom: 6px;
+    }
+    select {
+      &:first-of-type {
+        margin-bottom: 0.6rem;
+      }
+    }
+  }
+  #print-scale {
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 6px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+      input {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      label {
+        display: inline-block;
+        margin-left: 8px;
+        @include mont-regular;
+        font-size: 0.8rem;
+      }
+    }
+    select {
+      margin-top: 0.6rem;
+    }
+  }
+  #print-margins {
+    #margin-input-container {
+      display: flex;
+      margin-bottom: 0.6rem;
+      input {
+        display: inline-block;
+        width: 60px;
+        text-align: center;
+        padding: 4px;
+        background-color: #fafafa;
+        border: 1px solid #cacece;
+        margin-right: 6px;
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
 ////////////////////////////////////////////
 //Modal Styling
 ////////////////////////////////////////////
