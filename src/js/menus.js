@@ -225,4 +225,10 @@ roadwaySelectList.addEventListener("click", () => {
   displayFilteredMarkers();
 });
 
+//Print Map
+//////////////////////////////////
+document.querySelector("#generate-map-button").addEventListener("click", () => {
+  printMap();
+});
+
 console.log("Menu JS loaded...");

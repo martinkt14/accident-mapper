@@ -247,12 +247,12 @@
         <div id="print-general-settings">
           <h4>General Settings</h4>
           <p>Format/Size</p>
-          <select class="select">
+          <select class="select" id="pdf-format">
             <option value="letter">Letter (8.5"×11")</option>
             <option value="ledger">Ledger (11"×17")</option>
           </select>
           <p>Orientation</p>
-          <select class="select">
+          <select class="select" id="pdf-orientation">
             <option value="landscape">Landscape</option>
             <option value="portrait">Portrait</option>
           </select>
@@ -260,11 +260,11 @@
         <div id="print-scale">
           <h4>Map Scale</h4>
           <div class="checkbox-container">
-            <input type="checkbox" class="checkbox" checked />
+            <input type="checkbox" class="checkbox" checked id="pdf-scale" />
             <label>Include Scale Bar</label>
           </div>
-          <select class="select">
-            <option value="in">Imperial (mile/feet)</option>
+          <select class="select" id="pdf-scale-units">
+            <option value="imperial">Imperial (mile/feet)</option>
             <option value="mm">Metric (kilometer/meter)</option>
           </select>
         </div>
@@ -276,7 +276,7 @@
             <input type="text" placeholder="Bottom" id="margin-bottom" />
             <input type="text" placeholder="Left" id="margin-left" />
           </div>
-          <select class="select">
+          <select class="select" id="margin-units">
             <option value="in">Inches</option>
             <option value="mm">Millimeter</option>
           </select>
@@ -311,6 +311,7 @@
     </div>
 
     <script src="./js/_utils.js" type="module"></script>
+    <script src="./js/printing_utils.js"></script>
     <script src="./js/map.js"></script>
     <script src="./js/menus.js" type="module"></script>
   </body>
