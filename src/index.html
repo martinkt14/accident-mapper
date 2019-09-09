@@ -50,6 +50,7 @@
                         <p>Settings</p>
                     </div>
                 </li> -->
+        <div class="nav-divider"></div>
         <li id="printButton" class="nav-btn" data-menu="#print">
           <div class="nav-item">
             <i class="fas fa-print"></i>
@@ -251,24 +252,13 @@
             <option value="letter">Letter (8.5"×11")</option>
             <option value="ledger">Ledger (11"×17")</option>
           </select>
-          <p>Orientation</p>
+          <!-- <p>Orientation</p>
           <select class="select" id="pdf-orientation">
             <option value="landscape">Landscape</option>
             <option value="portrait">Portrait</option>
-          </select>
+          </select> -->
         </div>
-        <div id="print-scale">
-          <h4>Map Scale</h4>
-          <div class="checkbox-container">
-            <input type="checkbox" class="checkbox" checked id="pdf-scale" />
-            <label>Include Scale Bar</label>
-          </div>
-          <select class="select" id="pdf-scale-units">
-            <option value="imperial">Imperial (mile/feet)</option>
-            <option value="mm">Metric (kilometer/meter)</option>
-          </select>
-        </div>
-        <div id="print-margins">
+        <!-- <div id="print-margins">
           <h4>Margins</h4>
           <div id="margin-input-container">
             <input type="text" placeholder="Top" id="margin-top" />
@@ -280,6 +270,11 @@
             <option value="in">Inches</option>
             <option value="mm">Millimeter</option>
           </select>
+        </div> -->
+        <div id="print-general-settings">
+          <h4>Customization</h4>
+          <p>Footer Text</p>
+          <input type="text" />
         </div>
         <button id="generate-map-button" class="btn">Generate Map</button>
       </div>

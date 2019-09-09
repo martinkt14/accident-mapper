@@ -186,7 +186,7 @@
 }
 
 #sideNav ul li .nav-item {
-  color: #e5e5e5;
+  color: rgba(189, 203, 219, 0.8);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -211,15 +211,23 @@
 }
 
 #sideNav ul li .nav-item i {
-  font-size: 2rem;
+  font-size: 1.8rem;
   padding-bottom: 6px;
 }
 
 #sideNav ul li .nav-item p {
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
+}
+
+#sideNav .nav-divider {
+  width: 80%;
+  margin: 0 auto;
+  height: 1px;
+  margin-bottom: 2rem;
+  background-color: rgba(189, 203, 219, 0.8);
 }
 
 * {
@@ -279,7 +287,7 @@ body .overlay.active {
   background: -webkit-gradient(linear, left top, right top, color-stop(5%, #485563), to(#29323c));
   background: linear-gradient(90deg, #485563 5%, #29323c 100%);
   padding: 1rem 2rem 1rem 3rem;
-  color: #e5e5e5;
+  color: rgba(189, 203, 219, 0.8);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -1,11 +1,79 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600&display=swap");
-.btn-disabled {
+.btn {
   background: #ffffff;
-  border: 2px solid #c5c5c5;
+  border: 2px solid #485563;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 8px;
-  padding: 4px 8px;
+  padding: 0.5rem 2rem;
+  margin-top: 1.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 0.7rem;
+  color: #485563;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background: #485563;
+  color: white;
+}
+
+.btn.btn-danger {
+  border-color: red;
+  color: red;
+}
+
+.btn.btn-danger:hover {
+  background-color: red;
+  color: white;
+}
+
+.btn.btn-disabled {
+  background: #ffffff;
+  border: 2px solid #c5c5c5;
+  color: #c5c5c5;
+}
+
+.checkbox {
+  -webkit-appearance: none;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+  padding: 9px;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+}
+
+.checkbox:active, .checkbox:checked:active {
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.checkbox:checked {
+  background-color: #e9ecee;
+  border: 1px solid #adb8c0;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+  color: #99a1a7;
+}
+
+.checkbox:checked:after {
+  content: "\2714";
+  font-size: 14px;
+  position: absolute;
+  top: 0px;
+  left: 3px;
+  color: #99a1a7;
+}
+
+.select {
+  padding: 2px 6px;
+  min-width: 180px;
+  background-color: #fafafa;
+  border: 1px solid #cacece;
 }
 
 #sideNav {
@@ -40,7 +108,7 @@
 }
 
 #sideNav ul li .nav-item {
-  color: #e5e5e5;
+  color: rgba(189, 203, 219, 0.8);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -65,14 +133,22 @@
 }
 
 #sideNav ul li .nav-item i {
-  font-size: 2rem;
+  font-size: 1.8rem;
   padding-bottom: 6px;
 }
 
 #sideNav ul li .nav-item p {
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
+}
+
+#sideNav .nav-divider {
+  width: 80%;
+  margin: 0 auto;
+  height: 1px;
+  margin-bottom: 2rem;
+  background-color: rgba(189, 203, 219, 0.8);
 }
 /*# sourceMappingURL=sideNav.css.map */

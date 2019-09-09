@@ -28,7 +28,7 @@ app.post("/accidents", upload.single("filedrop"), (req, res) => {
   let accidents = geojson.parse(jsonData, {
     Point: ["Latitude", "Longitude"]
   });
-  console.log(accidents);
+  // console.log(accidents);
 
   res.setHeader("Content-Type", "application/json");
   res.json(accidents);

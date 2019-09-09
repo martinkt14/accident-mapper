@@ -7282,7 +7282,17 @@ var Pt=function(){function t(){this.pos=0,this.bufferLength=0,this.eof=!1,this.b
 const html2canvas = require("html2canvas");
 const jsPDF = require("jspdf");
 
+var pdfFormat = () => {
+  return document.querySelector("#pdf-format").value;
+};
+
+var imgWidth = () => {
+  return pdfFormat() === "letter" ? 10 : 16;
+};
+
 printMap = () => {
+  console.log(pdfFormat(), imgWidth());
+
   //HTML2Canvas
   html2canvas(document.querySelector("#map"), {
     dpi: 300,
@@ -7293,15 +7303,15 @@ printMap = () => {
     let pdf = new jsPDF({
       orientation: "landscape",
       unit: "in",
-      format: "ledger"
+      format: pdfFormat()
     });
     pdf.addImage(
       imgData,
       "JPEG",
       0.5,
       0.5,
-      16,
-      (16 / canvas.width) * canvas.height
+      imgWidth(),
+      (imgWidth() / canvas.width) * canvas.height
     );
     pdf.save("accident-map.pdf");
   });
