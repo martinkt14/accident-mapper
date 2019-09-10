@@ -1,16 +1,23 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600&display=swap");
 .btn {
-  background: #ffffff;
+  background: #485563;
+  color: #ecf2f9;
   border: 2px solid #485563;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border-radius: 8px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   padding: 0.5rem 2rem;
   margin-top: 1.5rem;
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 0.7rem;
-  color: #485563;
+}
+
+.btn i {
+  font-size: 0.8rem;
+  margin-right: 8px;
 }
 
 .btn:hover {
@@ -20,6 +27,7 @@
 }
 
 .btn.btn-danger {
+  background-color: #fff;
   border-color: red;
   color: red;
 }

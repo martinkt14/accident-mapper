@@ -53,8 +53,8 @@ body {
       align-items: center;
       justify-content: space-between;
       h4 {
-        @include mont-regular;
-        font-size: 0.9rem;
+        @include mont-medium;
+        font-size: 1rem;
       }
       p {
         @include mont-light;
@@ -68,7 +68,7 @@ body {
     }
     .submenu-content {
       padding: 2rem 3rem;
-      @include mont-semibold;
+      @include mont-medium;
       font-size: 0.8rem;
       color: $dark-gray;
       h4 {
@@ -92,6 +92,8 @@ body {
       background-size: cover;
       height: 100px;
       width: 100px;
+      box-shadow: 0 3px 6px hsla(0, 0, 0%, 0.15), 0 2px 4px hsla(0, 0, 0%, 0.12);
+      border-radius: 4px;
       &:hover {
         cursor: pointer;
         border: 2px solid lightskyblue;
@@ -223,33 +225,25 @@ body {
       margin-bottom: 6px;
     }
     select {
-      &:first-of-type {
-        margin-bottom: 0.6rem;
+      box-shadow: 0 1px 3px hsla(0, 0, 0%, 0.12), 0 1px 2px hsla(0, 0, 0%, 0.24);
+      border-radius: 4px;
+      padding: 6px;
+      margin-bottom: 0.6rem;
+      &:hover {
+        cursor: pointer;
       }
     }
   }
-  #print-scale {
-    .checkbox-container {
-      display: flex;
-      align-items: center;
+  #print-custom-settings {
+    p {
+      @include mont-regular;
+      font-size: 0.8rem;
       margin-bottom: 6px;
-      &:last-of-type {
-        margin-bottom: 0;
-      }
-      input {
-        &:hover {
-          cursor: pointer;
-        }
-      }
-      label {
-        display: inline-block;
-        margin-left: 8px;
-        @include mont-regular;
-        font-size: 0.8rem;
-      }
     }
-    select {
-      margin-top: 0.6rem;
+    input {
+      // box-shadow: 0 1px 3px hsla(0, 0, 0%, 0.12), 0 1px 2px hsla(0, 0, 0%, 0.24);
+      border-radius: 4px;
+      padding: 6px;
     }
   }
   #print-margins {

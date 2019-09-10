@@ -8,21 +8,27 @@ $dark-gray: #757575;
 $primary-blue: #485563;
 
 .btn {
-  background: #ffffff;
+  background: $primary-blue;
+  color: hsl(211, 50%, 95%);
   border: 2px solid $primary-blue;
   box-sizing: border-box;
-  border-radius: 8px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px hsla(0, 0, 0%, 0.2);
   padding: 0.5rem 2rem;
   margin-top: 1.5rem;
-  @include mont-regular;
+  @include mont-medium;
   font-size: 0.7rem;
-  color: $primary-blue;
+  i {
+    font-size: 0.8rem;
+    margin-right: 8px;
+  }
   &:hover {
     cursor: pointer;
     background: $primary-blue;
     color: white;
   }
   &.btn-danger {
+    background-color: #fff;
     border-color: red;
     color: red;
     &:hover {

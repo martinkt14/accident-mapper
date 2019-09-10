@@ -1,17 +1,24 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600&display=swap");
 .btn {
-  background: #ffffff;
+  background: #485563;
+  color: #ecf2f9;
   border: 2px solid #485563;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border-radius: 8px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   padding: 0.5rem 2rem;
   margin-top: 1.5rem;
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 0.7rem;
-  color: #485563;
+}
+
+.btn i {
+  font-size: 0.8rem;
+  margin-right: 8px;
 }
 
 .btn:hover {
@@ -21,6 +28,7 @@
 }
 
 .btn.btn-danger {
+  background-color: #fff;
   border-color: red;
   color: red;
 }
@@ -78,17 +86,24 @@
 }
 
 .btn {
-  background: #ffffff;
+  background: #485563;
+  color: #ecf2f9;
   border: 2px solid #485563;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border-radius: 8px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   padding: 0.5rem 2rem;
   margin-top: 1.5rem;
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 0.7rem;
-  color: #485563;
+}
+
+.btn i {
+  font-size: 0.8rem;
+  margin-right: 8px;
 }
 
 .btn:hover {
@@ -98,6 +113,7 @@
 }
 
 .btn.btn-danger {
+  background-color: #fff;
   border-color: red;
   color: red;
 }
@@ -301,8 +317,8 @@ body .overlay.active {
 
 .submenu.active .submenu-header h4 {
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 0.9rem;
+  font-weight: 500;
+  font-size: 1rem;
 }
 
 .submenu.active .submenu-header p {
@@ -318,7 +334,7 @@ body .overlay.active {
 .submenu.active .submenu-content {
   padding: 2rem 3rem;
   font-family: "Montserrat", sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.8rem;
   color: #757575;
 }
@@ -346,6 +362,9 @@ body .overlay.active {
   background-size: cover;
   height: 100px;
   width: 100px;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
 }
 
 #map-style-selection #map-selection-grid div:hover {
@@ -493,38 +512,28 @@ body .overlay.active {
   margin-bottom: 6px;
 }
 
-#print #print-general-settings select:first-of-type {
+#print #print-general-settings select {
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 4px;
+  padding: 6px;
   margin-bottom: 0.6rem;
 }
 
-#print #print-scale .checkbox-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 6px;
-}
-
-#print #print-scale .checkbox-container:last-of-type {
-  margin-bottom: 0;
-}
-
-#print #print-scale .checkbox-container input:hover {
+#print #print-general-settings select:hover {
   cursor: pointer;
 }
 
-#print #print-scale .checkbox-container label {
-  display: inline-block;
-  margin-left: 8px;
+#print #print-custom-settings p {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 0.8rem;
+  margin-bottom: 6px;
 }
 
-#print #print-scale select {
-  margin-top: 0.6rem;
+#print #print-custom-settings input {
+  border-radius: 4px;
+  padding: 6px;
 }
 
 #print #print-margins #margin-input-container {
