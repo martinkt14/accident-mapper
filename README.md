@@ -1,6 +1,6 @@
 # Accident Mapper
 
-This application was designed to help quickly analyze crash/accident data provided by local/state for the purpose of understanding how the existing infrastructure impacts the likelyhood of future accidents.
+This application was designed to help quickly analyze crash/accident data provided by local/state municipalities for the purpose of understanding how the existing infrastructure impacts the likelyhood of future accidents.
 
 [Live Application](http://accident-mapper.herokuapp.com/)
 
@@ -55,5 +55,6 @@ Data can be filtered multiple ways:
 
 # Credits
 
+- [Mapbox Maps API](https://www.mapbox.com/)
 - [html2canvas](https://www.npmjs.com/package/html2canvas) - [Niklas von Hertzen](https://www.npmjs.com/~niklasvh)
 - [jspdf](https://www.npmjs.com/package/jspdf) - [mrjameshall](https://www.npmjs.com/~mrjameshall)
